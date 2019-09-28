@@ -1,30 +1,19 @@
-credentials:
-  system:
-    domainCredentials:
-    - credentials:
-      - usernamePassword:
-          scope: GLOBAL
-          id: "bitbucket"
-          username: "${BB_USER}"
-          password: "${BB_PASS}" #Load from Environment Variable
-          description: "Bitbucket Credentials"
 jenkins:
   agentProtocols:
-    - JNLP4-connect
-    - Ping
+  - JNLP4-connect
+  - Ping
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Read:authenticated"
-        - "Overall/Administer:poet-pipeline-admin"
-        - "Overall/Administer:anonymous"
+      - "Overall/Read:authenticated"
+      - "Overall/Administer:anonymous"
   disableRememberMe: false
   globalNodeProperties:
   - envVars:
       env:
       - key: PIPELINE_INTERNAL_TEMPLATES
         value: |-
-                {"uri":"https://{{BB_URL}}/scm/poet/sre-pipeline-templates.git","label":"master","credentials":{ "id":"bitbucket" }}
+          {"uri":"{{PIPELINE_INTERNAL_TEMPLATES_REPO}}","label":"master","credentials":{ "id":"PIPELINE_INTERNAL_TEMPLATES_JENKINS_CREDENTIAL_ID" }}
   mode: NORMAL
   numExecutors: 1
   labelString: master
@@ -39,23 +28,15 @@ jenkins:
   - all:
       name: all
 unclassified:
-  bitbucketEndpointConfiguration:
-    endpoints:
-    - bitbucketServerEndpoint:
-        credentialsId: bitbucket
-        displayName: Bitbucket
-        manageHooks: true
-        serverUrl: "https://{{BB_URL}}"
   globalLibraries:
     libraries:
-    - name: poet-pipeline
+    - name: "poet-pipeline"
       retriever:
         modernSCM:
           scm:
             git:
-              credentialsId: bitbucket
-              id: "poetpipeline"
-              remote: "https://{{BB_URL}}/scm/poet/sre-pipeline.git"
+              id: "poet-pipeline"
+              remote: "{{PIPELINE_GLOBAL_LIBRARY_URL}}"
   location:
     adminAddress: "{{JENKINS_ADMIN_ADDRESS}}"
     url: "{{JENKINS_URL}}"
