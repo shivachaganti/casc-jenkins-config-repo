@@ -8,12 +8,12 @@ jenkins:
       - "Overall/Read:authenticated"
       - "Overall/Administer:anonymous"
   disableRememberMe: false
-  #globalNodeProperties:
-  #- envVars:
-  #    env:
-  #    - key: PIPELINE_INTERNAL_TEMPLATES
-  #      value: |-
-  #        {"uri":"{{PIPELINE_INTERNAL_TEMPLATES_REPO}}","label":"master","credentials":{ "id":"{{PIPELINE_INTERNAL_TEMPLATES_JENKINS_CREDENTIAL_ID}}" }}
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: PIPELINE_INTERNAL_TEMPLATES
+        value: |-
+          {"uri":"{{PIPELINE_INTERNAL_TEMPLATES_REPO}}","label":"master","credentials":{ "id":"{{PIPELINE_INTERNAL_TEMPLATES_JENKINS_CREDENTIAL_ID}}" }}
   mode: NORMAL
   numExecutors: 1
   labelString: master
