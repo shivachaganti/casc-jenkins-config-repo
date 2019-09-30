@@ -8,7 +8,7 @@ jenkins:
       maxRequestsPerHostStr: '100'
       name: "{{PIPELINE_ENGINE_NAME}}-agent"
       namespace: "{{KUBERNETES_NAMESPACE}}"
-      serverUrl: "https://kubernetes.docker.internal:6443"
+      serverUrl: "https://api-px-{{KUBERNETES_CLUSTER}}.pks.t-mobile.com:8443/"
       skipTlsVerify: true
       templates:
       - containers:
