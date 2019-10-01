@@ -20,4 +20,4 @@ java_opts: -server -d64 -XX:+PrintFlagsFinal -XshowSettings:vm -verbose:gc -XX:+
   -XX:+UnlockDiagnosticVMOptions -XX:G1NewSizePercent=25 -XX:G1MaxNewSizePercent=30 -XX:InitiatingHeapOccupancyPercent=40 -XX:G1SummarizeRSetStatsPeriod=1 -XX:ErrorFile=$JENKINS_HOME/hs_err_%p.log -XX:+LogVMOutput -XX:LogFile=$JENKINS_HOME/jvm_%p.log
   -Dhudson.slaves.ChannelPinger.pingIntervalSeconds=-1 -Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
   -Djenkins.model.Jenkins.logStartupPerformance=true -Djava.awt.headless=true -Djenkins.install.runSetupWizard=false -Dhudson.security.ExtendedReadPermission=true -Dgroovy.use.classvalue=true
-  -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=86400 -DhttpKeepAliveTimeout=60000 -DhttpsKeepAliveTimeout=60000
+  -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=86400 -DhttpKeepAliveTimeout=60000 -DhttpsKeepAliveTimeout=60000 -Xbootclasspath/p:/startup/alpn-boot-8.1.12.v20180117.jar
