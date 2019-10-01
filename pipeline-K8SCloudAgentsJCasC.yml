@@ -12,7 +12,7 @@ jenkins:
       skipTlsVerify: true
       templates:
       - containers:
-        - image: artifactory.internal.t-mobile.com:8502/sre-pipeline/pipeline-agent-dind:dind-18.09.6-remoting-3.30-1
+        - image: shivachaganti/pipeline-agent-dind:dind-18.09.6-remoting-3.30-1
           livenessProbe:
             failureThreshold: 0
             initialDelaySeconds: 0
